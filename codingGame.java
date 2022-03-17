@@ -210,16 +210,16 @@ class A {
     /**
      * Executes the service with the given connection.
      */
-    void a(Service s, Connection c) {
+    void a(Service s, Connection c)throws Exception {
         // update this code
         try {
-
-            c.commit();
             s.setConnection(c);
-            s.execute(s);
-            c.close();
+            s.execute();
+            c.commit(); // si ok on commit
         } catch (Exception e) {
-            c.rollback();
+            c.rollback(); //si echec on rollback
+        }finally{
+            c.close(); // dans tous les cas on applelle close
         }
 
     }
@@ -321,3 +321,4 @@ class Solution {
     }
     // #endregion
 }
+
