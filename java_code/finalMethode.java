@@ -1,3 +1,3 @@
-public class finalMethode {
+public class FinalMethode {
     
 }

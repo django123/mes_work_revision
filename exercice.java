@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class exercice {
+public class Exercice {
     
     public static void main(String [] args){
 
