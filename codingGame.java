@@ -401,22 +401,37 @@ class calculator{
     }
 }
 
+abstract class Animal {
+    abstract String getName();
+}
 
 class Dog extends Animal {
+    private final String name;
 
-    Dog(String name){
-        this.name=name;
+    Dog(String name) {
+        this.name = name;
     }
 
+    @Override
+    String getName() {
+        return name;
+    }
 }
 
 class Cat extends Animal {
+    private final String name;
 
-    Cat(String name){
-        this.name=name;
+    Cat(String name) {
+        this.name = name;
     }
 
+    @Override
+    String getName() {
+        return name;
+    }
 }
+
+
 
 class Application{
     static String getAnimalName(Animal a){
