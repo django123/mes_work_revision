@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 /**
  * Algorithm.findLargest(int[] numbers) should return the largest number from
  * numbers. The array numbers
@@ -321,4 +324,110 @@ class Solution {
     }
     // #endregion
 }
+//implement the method check(String str) to
+// check the correctness of string of this type.check return true if the string is correct, false otherwise
+class A {
 
+    /**
+     * Checks that the given string is​​​​​​‌​​‌‌​​​‌‌​‌‌‌‌​‌​‌‌​‌​​‌ correct.
+     */
+	static boolean check(String str) {
+
+        if (null == str || str.isEmpty()) {
+        return true;
+    }
+    // System.out.print(str + " -> ");
+    Deque<Character> stack = new ArrayDeque();
+    
+    for (char c : str.toCharArray()) {
+        if (c == ']' || c == ')') {
+            if (stack.isEmpty()) {
+                return false;
+            }
+            char prev = stack.pop();
+            if (prev != '[' && c == ']' || prev != '(' && c == ')') {
+                return false;
+            }
+        } else if (c == '[' || c == '(') {
+            stack.push(c);
+        } else {
+            return false;
+        }
+    }
+    return stack.isEmpty();
+		
+	}
+}
+
+//sumRange
+// Solution.sumRange should return the sum of integers having value between 10 ti 100 inclusive and belonging to the array ints
+
+
+
+
+public class RangeTest1 {
+
+    public static void main(String[] args){
+
+        System.out.println(sumRange(12, 18)); // prints 105
+        System.out.println(sumRange(18, 12)); // prints 0
+        System.out.println(sumRange(18, 18)); // prints 18
+    }
+
+    public static int sumRange(int low, int high)
+    {
+        int sum = 0;
+
+        for (int val = low; val <= high; val++){
+            sum += val;
+        }
+
+        return sum;
+    }
+}
+// sometimes the provided implementation returns a wrong sum. 
+//For example, Calculator.sum("99.35","1.10") returns 100.44999999999. Modify Calculator.sum(String...numbers)
+class calculator{
+    static String sum(String ...numbers) {
+    double total=0;
+    String S = null;
+    for (String number:numbers) {
+        total+=Double.parseDouble(number);  
+    
+        String x = String.valueOf(total);
+        NumberFormat nf = new DecimalFormat("#.###");
+         S = nf.format(total);}
+        return String.valueOf(S);
+    }
+}
+
+
+class Dog extends Animal {
+
+    Dog(String name){
+        this.name=name;
+    }
+
+}
+
+class Cat extends Animal {
+
+    Cat(String name){
+        this.name=name;
+    }
+
+}
+
+class Application{
+    static String getAnimalName(Animal a){
+        String name=null;
+        /*if(a instanceof Dog){
+            name=((Dog)a).getName();
+        }
+        else if(a instanceof Cat){
+            name=((Cat)a).getName();
+        }*/
+        name=a.getName();
+        return name;
+    }
+}
