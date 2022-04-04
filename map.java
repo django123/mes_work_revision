@@ -1,7 +1,7 @@
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-public class Test {
+public class Map {
 
     public static void main(String[] args) {
 
@@ -14,6 +14,7 @@ public class Test {
         Enumeration en = ht.elements();
 
         while (en.hasMoreElements()) {
+            System.out.println("-----------------------------------");
             System.out.println(en.nextElement());
         }
     }
